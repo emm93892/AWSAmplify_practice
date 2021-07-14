@@ -58,10 +58,13 @@
                 body: raw,
                 redirect: 'follow'
             };
+
+            var display = document.getElementById('sirabasu')
+
             // make API call with parameters and use promises to get response
             fetch("https://0awuc50uma.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
-            .then(result => alert(JSON.parse(result).body))
+            .then(result => display.innerHTML = result)
             .catch(error => console.log('error', error));
         }
 
@@ -97,5 +100,9 @@
       <input type="text" id="type">
       <button type="button" onclick="callsirabasu(document.getElementById('type').value, 'type')">Call sirabasu</button>
     </form>
+
+    <div id="sirabasu">ここに表示</div>
+
+
 </body>
 </html>
