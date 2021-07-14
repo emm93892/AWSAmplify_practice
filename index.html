@@ -43,6 +43,31 @@
             .then(result => alert(JSON.parse(result).body))
             .catch(error => console.log('error', error));
         }
+
+        var callsirabasu = (value)=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({subject:value});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://0awuc50uma.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        }
+
+
+
+
     </script>
 </head>
 <body>
@@ -54,6 +79,23 @@
         <!-- set button onClick method to call function we defined passing input values as parameters -->
         <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call API</button>
     </form>
+
+    <form>
+      <label>科目 :</label>
+      <input type="text" id="subject">
+      <button type="button" onclick="callsirabasu(document.getElementById('subject').value)">Call sirabasu</button>
+    </form>
+
+    <form>
+      <label>学年 :</label>
+      <input type="text" id="year">
+      <button type="button" onclick="callsirabasu(document.getElementById('year').value,'year')">Call sirabasu</button>
+    </form>
+
+    <form>
+      <label>選択・必修 :</label>
+      <input type="text" id="type">
+      <button type="button" onclick="callsirabasu(document.getElementById('type').value, 'type')">Call sirabasu</button>
+    </form>
 </body>
 </html>
-
