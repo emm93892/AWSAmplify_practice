@@ -65,7 +65,7 @@
             fetch("https://0awuc50uma.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
             .then(response => JSON.parse(response))
-            .then(result => display.innerHTML = result.Item)
+            .then(result => display.innerHTML = result)
             .catch(error => console.log('error', error));
         }
 
