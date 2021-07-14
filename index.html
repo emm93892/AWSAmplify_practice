@@ -64,7 +64,7 @@
             // make API call with parameters and use promises to get response
             fetch("https://0awuc50uma.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
-            .then(response => JSON.parse(response["body"]))
+            //.then(response => JSON.parse(response["body"]))
             .then(result => display.innerHTML = result)
             .catch(error => console.log('error', error));
         }
