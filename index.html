@@ -23,7 +23,7 @@
     </style>
     <script>
         function displaySirabasu(result){
-            let display_elements = document.querySelectorAll('display');
+            let display_elements = [...document.querySelectorAll('.display')];
             
             obj = Object.keys(result).map(function (key) {return result[key]})
             
@@ -119,13 +119,13 @@
     
     <div id="result"></div>
     
-    <div id="display">
-        教科：<div class="display_subject"></div>
-        学年：<div class="display_schoolyear"></div>
-        教員：<div class="display_teacher"></div>
-        必修・選択：<div class="display_type"></div>
-        単位数：<div class="display_unit"></div>
-    </div>
+    
+    教科：<div class="display"></div>
+    学年：<div class="display"></div>
+    教員：<div class="display"></div>
+    必修・選択：<div class="display"></div>
+    単位数：<div class="display"></div>
+  
         
 </body>
 </html>
