@@ -34,9 +34,10 @@
             
             console.log(result)
             
-            for (let i = 0; i < len; i++){
-                display_elements[i].innerHTML = obj[i]
-            }
+            display_elements[0].innerHTML = result.
+            //for (let i = 0; i < len; i++){
+                //display_elements[i].innerHTML = obj[i]
+            //}
         }
         
         // define the callAPI function that takes a first name and last name as parameters
@@ -118,11 +119,11 @@
     </br>
     
     <div id="dis"> 
-        教科：<span class="display"></span></br>
-        学年：<span class="display"></span></br>
-        教員：<span class="display"></span></br>
-        必修・選択：<span class="display"></span></br>
-        単位数：<span class="display"></span></br>
+        教科：<span class="display" id="subject"></span></br>
+        学年：<span class="display" id="year"></span></br>
+        教員：<span class="ddisplay" id="teacher"></span></br>
+        必修・選択：<span class="display" id="choice"></span></br>
+        単位数：<span class="display" id="unit"></span></br>
     </div>
         
 </body>
