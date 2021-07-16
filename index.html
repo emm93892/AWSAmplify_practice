@@ -24,10 +24,12 @@
     <script>
         function displaySirabasu(result){
             let display_elements = document.querySelectorAll('display');
-            let len = result.length;
             
+            obj = Object.keys(result).map(function (key) {return result[key]})
+            
+            let len = obj.length;
             for (let i = 0; i < len; i++){
-                display_elements[i].innerHTML = result[i]
+                display_elements[i].innerHTML = obj[i]
             }
             //display_elements["subject"].innerHTML = elements[i]
             //display_elements["school year"].innerHTML = elements[i]
@@ -82,14 +84,7 @@
             //.then(result => elements)
             .then(result => displaySirabasu(result))
             .catch(error => console.log('error', error));
-            
-            
-            
         }
-
-
-
-
     </script>
 </head>
 <body>
