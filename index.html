@@ -22,6 +22,20 @@
         }
     </style>
     <script>
+        function displaySirabasu(result){
+            let display_elements = document.querySelectorAll('display');
+            let len = result.length;
+            
+            for (let i = 0; i < len; i++){
+                display_elements[i].innerHTML = result[i]
+            }
+            //display_elements["subject"].innerHTML = elements[i]
+            //display_elements["school year"].innerHTML = elements[i]
+            //display_elements["teacher"].innerHTML = elements[i]
+            //display_elements["type"].innerHTML = elements[i]
+            //display_elements["unit"].innerHTML = elements[i]
+        }
+        
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (firstName,lastName)=>{
             // instantiate a headers object
@@ -60,8 +74,6 @@
             };
 
             var display = document.getElementById('result')
-            let display_elements = document.querySelectorAll('display');
-            let elements = [];
             
             // make API call with parameters and use promises to get response
             fetch("https://0awuc50uma.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
@@ -71,10 +83,8 @@
             .then(result => display.innerHTML = result)
             .catch(error => console.log('error', error));
             
-            let len = elements.length;
-            for (let i = 0; i < len; i++){
-                display_elements[i].innerHTML = elements[i]
-            }
+            
+            
         }
 
 
