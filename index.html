@@ -24,10 +24,14 @@
     <script>
         function displaySirabasu(result){
             let display_elements = [...document.querySelectorAll('.display')];
-            console.log(display_elements)
+            
             obj = Object.keys(result).map(function (key) {return result[key]})
             
             let len = obj.length;
+            
+            console.log(display_elements)
+            console.log(obj)
+            
             for (let i = 0; i < len; i++){
                 display_elements[i].innerHTML = obj[i]
             }
