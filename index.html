@@ -59,7 +59,7 @@
                 redirect: 'follow'
             };
 
-            //var display = document.getElementById('sirabasu')
+            var display = document.getElementById('result')
             let display_elements = document.querySelectorAll('display');
             let elements = [];
             
@@ -68,7 +68,7 @@
             .then(response => response.text())
             .then(response => JSON.parse(response))
             .then(result => elements)
-            //.then(result => display.innerHTML = result)
+            .then(result => display.innerHTML = result)
             .catch(error => console.log('error', error));
             
             let len = elements.length;
@@ -110,6 +110,10 @@
       <button type="button" onclick="callsirabasu(document.getElementById('type').value, 'type')">Call sirabasu</button>
     </form>
 
+    </br>
+    
+    <div id="result">
+    
     <div id="display">
         教科：<div class="display_subject"></div>
         学年：<div class="display_schoolyear"></div>
