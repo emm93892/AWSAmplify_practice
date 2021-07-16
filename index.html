@@ -35,11 +35,6 @@
             for (let i = 0; i < len; i++){
                 display_elements[i].innerHTML = obj[i]
             }
-            //display_elements["subject"].innerHTML = elements[i]
-            //display_elements["school year"].innerHTML = elements[i]
-            //display_elements["teacher"].innerHTML = elements[i]
-            //display_elements["type"].innerHTML = elements[i]
-            //display_elements["unit"].innerHTML = elements[i]
         }
         
         // define the callAPI function that takes a first name and last name as parameters
@@ -85,7 +80,6 @@
             fetch("https://0awuc50uma.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
             .then(response => JSON.parse(response))
-            //.then(result => elements)
             .then(result => displaySirabasu(result.Item))
             .catch(error => console.log('error', error));
         }
