@@ -8,7 +8,7 @@
     body {
         background-color: #232F3E;
         }
-    label, button, #sirabasu {
+    label, button, #display {
         color: #FF9900;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 20px;
@@ -59,14 +59,22 @@
                 redirect: 'follow'
             };
 
-            var display = document.getElementById('sirabasu')
-
+            //var display = document.getElementById('sirabasu')
+            let display_elements = document.querySelectorAll('display');
+            let elements = [];
+            
             // make API call with parameters and use promises to get response
             fetch("https://0awuc50uma.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
-            //.then(response => JSON.parse(response["body"]))
-            .then(result => display.innerHTML = result)
+            .then(response => JSON.parse(response))
+            .then(result => elements)
+            //.then(result => display.innerHTML = result)
             .catch(error => console.log('error', error));
+            
+            let len = elements.length;
+            for (let i = 0; i < len; i++){
+                display_elements[i].innerHTML = elements[i]
+            }
         }
 
 
@@ -102,8 +110,13 @@
       <button type="button" onclick="callsirabasu(document.getElementById('type').value, 'type')">Call sirabasu</button>
     </form>
 
-    <div id="sirabasu">ここに表示</div>
-
-
+    <div id="display">
+        教科：<div class="display_subject"></div>
+        学年：<div class="display_schoolyear"></div>
+        教員：<div class="display_teacher"></div>
+        必修・選択：<div class="display_type"></div>
+        単位数：<div class="display_unit"></div>
+    </div>
+        
 </body>
 </html>
